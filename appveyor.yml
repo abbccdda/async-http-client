@@ -1,7 +1,13 @@
 install:
-  - mvn clean install
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 test_script:
   - mvn test 
+
+after_test:
+  - mvn clean
+
+cache:
+  - 'C:\Users\%USERNAME%\.m2\repository'
 
 build: off
